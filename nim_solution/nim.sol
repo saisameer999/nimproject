@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-//pragma solidity >0.8.0;
-pragma solidity >=0.6.2 <0.7.0;
+pragma solidity >0.8.0;
+//pragma solidity >=0.6.2 <0.7.0;
 
 // Tools:
 // In this assignment we will be programming in Ethereum with Solidity.
@@ -258,19 +258,14 @@ contract Boring1NimPlayer is TrackingNimPlayer
 
 /*
 Test vectors:
-
 deploy your contract NimBoard (we'll call it "C" here)
 deploy 2 Boring1NimPlayers, A & B
-
 In remix set the value to 0.002 ether and call
 C.startMisere(A,B,[1,1])
-
 A should have 1 win and a balance of 1000000000000000 (0.001 ether)
 B should have 1 loss
-
 Now try C.startMisere(A,B,[1,2])
 Now A and B should both have 1 win and 1 loss (and B should have gained however many coins you funded the round with)
-
 The above is a pain to click through by hand, except the first few times.
 Maybe you could create a contract that tests your Nim contract?
 */
