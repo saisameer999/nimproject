@@ -62,9 +62,9 @@ interface NimPlayer
     function nextMove(uint256[] calldata piles) external returns (uint, uint256);
     // Called if you win, with your winnings!
     function Uwon() external payable;
-    // Called if you lost :-(
+    // Called if you lost 🙁
     function Ulost() external;
-    // Called if you lost because you made an illegal move :-(
+    // Called if you lost because you made an illegal move 🙁
     function UlostBadMove() external;
 }
 
@@ -214,12 +214,12 @@ contract TrackingNimPlayer is NimPlayer
     {
         wins += 1;
     }
-    // Called if you lost :-(
+    // Called if you lost 🙁
     function Ulost() override external
     {
         losses += 1;
     }
-    // Called if you lost because you made an illegal move :-(
+    // Called if you lost because you made an illegal move 🙁
     function UlostBadMove() override external
     {
         faults += 1;
@@ -258,14 +258,19 @@ contract Boring1NimPlayer is TrackingNimPlayer
 
 /*
 Test vectors:
+
 deploy your contract NimBoard (we'll call it "C" here)
 deploy 2 Boring1NimPlayers, A & B
+
 In remix set the value to 0.002 ether and call
 C.startMisere(A,B,[1,1])
+
 A should have 1 win and a balance of 1000000000000000 (0.001 ether)
 B should have 1 loss
+
 Now try C.startMisere(A,B,[1,2])
 Now A and B should both have 1 win and 1 loss (and B should have gained however many coins you funded the round with)
+
 The above is a pain to click through by hand, except the first few times.
 Maybe you could create a contract that tests your Nim contract?
 */
